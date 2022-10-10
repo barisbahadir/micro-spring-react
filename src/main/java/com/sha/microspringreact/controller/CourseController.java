@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(name="api/course") //pre-path
+@RequestMapping("api/course") //pre-path
 public class CourseController{
 
     @Autowired
@@ -21,7 +21,6 @@ public class CourseController{
 
    @DeleteMapping("{courseId}") //api/course/{courseId}
    public ResponseEntity<?> deleteCourse(@PathVariable Long id){
-
         courseService.deleteCourse(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
@@ -29,9 +28,7 @@ public class CourseController{
 
    @GetMapping //api/course
     public ResponseEntity<?> getAllCourses(){
-
         return ResponseEntity.ok(courseService.findAllCourses());
-
    }
 
 }
